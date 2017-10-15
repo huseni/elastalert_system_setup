@@ -1,0 +1,126 @@
+ElastAlert Review and updates
+++++++++++++++++++++++++++++++++
+
+Step - 1
+Install elastalert 5.x Elastalert -> https://elastalert.readthedocs.io/en/latest/
+ElastAlert home setup - /home/myuser/elastalert
+
+
+Step - 2
+create the elastalert rules in the directory structure under 'elastalert'
+
+myuser@ip-44-55-66-77:~/elastalert (master %)$pwd
+/home/myuser/elastalert
+myuser@ip-44-55-66-77:~/elastalert (master %)$cd example_monitoring_rules/
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules (master %)$ll
+total 4
+drwxrwxr-x 9 myuser myuser 4096 ago 30 18:17 angeles
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules (master %)$cd angeles/
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules/angeles (master %)$ll
+drwxrwxr-x 2 myuser myuser 4096 jul 24 22:19 stom
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules/angeles (master %)$pwd
+/home/myuser/elastalert/example_monitoring_rules/angeles
+
+step - 3 
+Command to test the elastalert config file if correctly configured with no syntax errors.
+
+myuser@ip-44-55-66-77:$ elastalert --verbose --config config_files/config_24_hours.yaml --rule example_monitoring_rules/angeles/cronjobs/angeles_report_ws.yaml > logs/angeles/cronjobs/angeles_report_ws.log 2>&1 &
+
+step - 4
+watch for the logs of the elastalert rules setting on the path where you send the stdout at rule runtime.
+ex/ /home/myuser/elastalert/logs/angeles/reports
+
+
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules/angeles/cassandra (master %)$elastalert-test-rule angeles_report_ws.yaml
+Successfully loaded angeles ny cassandra cluster connection monitor
+
+INFO:elastalert:Note: In debug mode, alerts will be logged to console but NOT actually sent. To send them, use --verbose.
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 22:52 UTC to 1999-09-17 23:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 23:37 UTC to 1999-09-17 00:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 00:22 UTC to 1999-09-17 01:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 01:07 UTC to 1999-09-17 01:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 01:52 UTC to 1999-09-17 02:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 02:37 UTC to 1999-09-17 03:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 03:22 UTC to 1999-09-17 04:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 04:07 UTC to 1999-09-17 04:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 04:52 UTC to 1999-09-17 05:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 05:37 UTC to 1999-09-17 06:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 06:22 UTC to 1999-09-17 07:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 07:07 UTC to 1999-09-17 07:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 07:52 UTC to 1999-09-17 08:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 08:37 UTC to 1999-09-17 09:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 09:22 UTC to 1999-09-17 10:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 10:07 UTC to 1999-09-17 10:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 10:52 UTC to 1999-09-17 11:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 11:37 UTC to 1999-09-17 12:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 12:22 UTC to 1999-09-17 13:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 13:07 UTC to 1999-09-17 13:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 13:52 UTC to 1999-09-17 14:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 14:37 UTC to 1999-09-17 15:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 15:22 UTC to 1999-09-17 16:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 16:07 UTC to 1999-09-17 16:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 16:52 UTC to 1999-09-17 17:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 17:37 UTC to 1999-09-17 18:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 18:22 UTC to 1999-09-17 19:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 19:07 UTC to 1999-09-17 19:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 19:52 UTC to 1999-09-17 20:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 20:37 UTC to 1999-09-17 21:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 21:22 UTC to 1999-09-17 22:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 22:07 UTC to 1999-09-17 22:52 UTC: 0 / 0 hits
+
+Would have written the following documents to writeback index (default is elastalert_status):
+
+elastalert_status - {'hits': 0, 'matches': 0, '@timestamp': datetime.datetime(2017, 9, 6, 22, 52, 32, 61305, tzinfo=tzutc()), 'rule_name': 'angeles ny cassandra cluster connection monitor', 'starttime': datetime.datetime(2017, 9, 5, 22, 52, 31, 525566, tzinfo=tzutc()), 'endtime': datetime.datetime(2017, 9, 6, 22, 52, 31, 525566, tzinfo=tzutc()), 'time_taken': 0.5294010639190674}
+
+Verified the rules,
+myuser@ip-44-55-66-77:~/elastalert/example_monitoring_rules/angeles/cassandra (master %)$elastalert-test-rule angeles_report_ws_cron_job_calculate_fuel_differences.yaml
+Successfully loaded angeles ny cassandra cluster connection monitor
+INFO:elastalert:Note: In debug mode, alerts will be logged to console but NOT actually sent. To send them, use --verbose.
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 22:52 UTC to 1999-09-17 23:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 23:37 UTC to 1999-09-17 00:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 00:22 UTC to 1999-09-17 01:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 01:07 UTC to 1999-09-17 01:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 01:52 UTC to 1999-09-17 02:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 02:37 UTC to 1999-09-17 03:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 03:22 UTC to 1999-09-17 04:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 04:07 UTC to 1999-09-17 04:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 04:52 UTC to 1999-09-17 05:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 05:37 UTC to 1999-09-17 06:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 06:22 UTC to 1999-09-17 07:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 07:07 UTC to 1999-09-17 07:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 07:52 UTC to 1999-09-17 08:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 08:37 UTC to 1999-09-17 09:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 09:22 UTC to 1999-09-17 10:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 10:07 UTC to 1999-09-17 10:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 10:52 UTC to 1999-09-17 11:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 11:37 UTC to 1999-09-17 12:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 12:22 UTC to 1999-09-17 13:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 13:07 UTC to 1999-09-17 13:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 13:52 UTC to 1999-09-17 14:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 14:37 UTC to 1999-09-17 15:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 15:22 UTC to 1999-09-17 16:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 16:07 UTC to 1999-09-17 16:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 16:52 UTC to 1999-09-17 17:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 17:37 UTC to 1999-09-17 18:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 18:22 UTC to 1999-09-17 19:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 19:07 UTC to 1999-09-17 19:52 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 19:52 UTC to 1999-09-17 20:37 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 20:37 UTC to 1999-09-17 21:22 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 21:22 UTC to 1999-09-17 22:07 UTC: 0 / 0 hits
+INFO:elastalert:Queried rule angeles ny cassandra cluster connection monitor from 1999-09-17 22:07 UTC to 1999-09-17 22:52 UTC: 0 / 0 hits
+Would have written the following documents to writeback index (default is elastalert_status):
+elastalert_status -
+{'hits': 0, 'matches': 0, '@timestamp': datetime.datetime(2017, 9, 6, 22, 52, 32, 61305, tzinfo=tzutc()), 'rule_name': 'angeles ny cassandra cluster connection monitor', 'starttime': datetime.datetime(2017, 9, 5, 22, 52, 31, 525566, tzinfo=tzutc()), 'endtime': datetime.datetime(2017, 9, 6, 22, 52, 31, 525566, tzinfo=tzutc()), 'time_taken': 0.5294010639190674}
+Running the daemon process,
+
+step - 5
+Running the elasticalert rules,
+
+myuser@ip-44-55-66-77:~/elastalert (master %)$elastalert --verbose --rule example_monitoring_rules/angeles/cassandra_cluster_monitor.yml> logs/angeles/cassandra/cassandra_cluster_monitor.log 2>&1 &
+1 3108
+myuser@ip-44-55-66-77:~/elastalert (master %)$
+The rule is running,
+myuser@ip-44-55-66-77:~/elastalert (master %)$ps -ef | grep cassandra_cluster_monitor.yml
+myuser 3108 1128 1 22:58 pts/0 00:00:00 /usr/bin/python /usr/local/bin/elastalert --verbose --rule example_monitoring_rules/angeles/cassandra_cluster_monitor.yml
+myuser 3189 1128 0 22:59 pts/0 00:00:00 grep --color=auto cassandra_cluster_monitor.yml
+myuser@ip-44-55-66-77:~/elastalert (master %)$
